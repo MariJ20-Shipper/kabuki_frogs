@@ -5,7 +5,7 @@ using UnityEngine;
 public class camara : MonoBehaviour
     
 {
-    public Transform heroe;
+    public Transform rb;
     public Vector3 desplazamiento;
     public float limit_abajo = -3;
     public float limit_arriba = -1;
@@ -13,11 +13,11 @@ public class camara : MonoBehaviour
     public float limit_der = 500;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {
         transform.position = new Vector3(
-            Mathf.Clamp (heroe.position.x + desplazamiento.x, limit_izq, limit_der),
-            Mathf.Clamp(heroe.position.y + desplazamiento.y, limit_abajo, limit_arriba),
+            Mathf.Clamp (rb.position.x + desplazamiento.x, limit_izq, limit_der),
+            Mathf.Clamp(rb.position.y + desplazamiento.y, limit_abajo, limit_arriba),
             desplazamiento.z);
     }
 }
