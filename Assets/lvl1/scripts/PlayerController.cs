@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private bool toco_piso;
     private bool toco_movil;
+ private Vector2 pos_o;
     
 
     // Start is called before the first frame update
     void Start()
     {
+pos_o = this.transform.position;
         rb = GetComponent<Rigidbody2D>();                    // le indico al prograba que el personaje trabajará con las propiedades que tiene un rigidbody normalmente
         anim = GetComponent<Animator>();          // indico que el animator que afecta el rigidbody será utilizado en este script
     }
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collider.transform.tag.Equals("muerte"))
         {
-        	this.transform.position = new Vector2(0,-3);
+        	this.transform.position = pos_o;
 		Debug.Log("ay me cai xd");
         }
     }
