@@ -12,6 +12,7 @@ public class camara : MonoBehaviour
     public float limit_izq = -10;
     public float limit_der = 500;
 
+  
     // Update is called once per frame
     void LateUpdate()
     {

@@ -397,7 +397,7 @@ MonoBehaviour:
   desplazamiento: {x: 1, y: 0, z: -10}
   limit_abajo: -3.73
   limit_arriba: -0.27
-  limit_izq: -0.85
+  limit_izq: -1.67
   limit_der: 32.27
 --- !u!20 &519420031
 Camera:
@@ -449,7 +449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85, y: -3.44, z: -10}
+  m_LocalPosition: {x: -1.67, y: -3.44, z: -10}
   m_LocalScale: {x: 0.5376465, y: 0.0018287319, z: 0.38714418}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1695,6 +1695,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1483028354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483028355}
+  - component: {fileID: 1483028356}
+  m_Layer: 0
+  m_Name: spawn_chara
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483028355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483028354}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.4, y: -3.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1483028356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483028354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20848aa88d07bed48ab677ccd2a5fa65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sp: {fileID: 1483028355}
+  rb: {fileID: 1234702787}
 --- !u!1 &1663454705
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,7 +2553,12 @@ PrefabInstance:
     - target: {fileID: 8881255246379043042, guid: 9871b9aad6c6d1a48a8f4e7979aaea16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.91
+      value: 30.874
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881255246379043042, guid: 9871b9aad6c6d1a48a8f4e7979aaea16,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.658476
       objectReference: {fileID: 0}
     - target: {fileID: 8881255245321767406, guid: 9871b9aad6c6d1a48a8f4e7979aaea16,
         type: 3}
