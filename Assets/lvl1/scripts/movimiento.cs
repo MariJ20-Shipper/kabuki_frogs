@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movimiento : MonoBehaviour
+public class Movimiento : MonoBehaviour
 {
     public GameObject plataforma;
     public Transform posicion_inicial;

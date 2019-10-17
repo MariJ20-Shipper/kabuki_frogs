@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camara : MonoBehaviour
+public class Camara : MonoBehaviour
     
 {
     public Transform rb;
