@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collider.transform.tag.Equals("muerte"))
         {
-            if (--vidas>0)
+            if (--vidas > 0)
             {
                 this.transform.position = pos_o;
             }
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("ay me morí xd");
             }
-            
+
         }
     }
 
@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour
     void Update()
 
     {
-        Vector2 FixedVelocity = rb.velocity;
-        FixedVelocity.x *= 0.75f;
+       Vector2 FixedVelocity = rb.velocity;  //defino un vector igual al de la velocidad del rigidbody que es el héroe
+        FixedVelocity.x *= 0.75f;   //  reasigno el valor en X, que al ser menor a 1 irá reduciendo la velocidad hasta llegar a 0
 
         if (toco_piso || toco_movil)
         {
@@ -101,17 +101,15 @@ public class PlayerController : MonoBehaviour
             anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
         }
 
-        if (Input.GetKey(KeyCode.W) && toco_movil) //si presiono W y toco_movil es true
+        else
         {
-            rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
-            anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
+            if (Input.GetKey(KeyCode.W) && toco_movil) //si presiono W y toco_movil es true
+            {
+                rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
+                anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
+            }
         }
 
-        if (Input.GetKey(KeyCode.W) && toco_piso) // hace lo mismo que el de arriba xd
-        {
-            rb.velocity = new Vector2(rb.velocity.x, altura_salto);
-            anim.SetInteger("Estado", 2);
-        }
 
 
         if (Input.GetKey(KeyCode.Space) && toco_piso) // hace lo mismo que el de arriba xd
@@ -121,69 +119,77 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.W) && toco_piso) // hace lo mismo que el de arriba xd
             {
-                rb.velocity = new Vector2(velocidad_mov, rb.velocity.y); //a qué velocidad se moverá (dirección y rapidez)
-                rb.transform.localScale = new Vector2(1, 1); //cómo se ve el personaje
-                anim.SetInteger("Estado", 1);                   // la animación que está corriendo -> caminar
-
+                rb.velocity = new Vector2(rb.velocity.x, altura_salto);
+                anim.SetInteger("Estado", 2);
             }
-
             else
             {
 
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.D))
                 {
-                    rb.velocity = new Vector2(-velocidad_mov, rb.velocity.y);
-                    rb.transform.localScale = new Vector2(-1, 1);
-                    anim.SetInteger("Estado", 1);
+                    rb.velocity = new Vector2(velocidad_mov, rb.velocity.y); //a qué velocidad se moverá (dirección y rapidez)
+                    rb.transform.localScale = new Vector2(1, 1); //cómo se ve el personaje
+                    anim.SetInteger("Estado", 1);                   // la animación que está corriendo -> caminar
+
                 }
-                
+
                 else
                 {
-                    if (Input.GetKey(KeyCode.UpArrow) && toco_movil) //si presiono W y toco_movil es true
+
+                    if (Input.GetKey(KeyCode.A))
                     {
-                        rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
-                        anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
+                        rb.velocity = new Vector2(-velocidad_mov, rb.velocity.y);
+                        rb.transform.localScale = new Vector2(-1, 1);
+                        anim.SetInteger("Estado", 1);
                     }
 
-                    if (Input.GetKey(KeyCode.UpArrow) && toco_piso) // hace lo mismo que el de arriba xd
-                    {
-                        rb.velocity = new Vector2(rb.velocity.x, altura_salto);
-                        anim.SetInteger("Estado", 2);
-                    }
                     else
                     {
-
-                        if (Input.GetKey(KeyCode.RightArrow))
+                        if (Input.GetKey(KeyCode.UpArrow) && toco_movil) //si presiono W y toco_movil es true
                         {
-                            rb.velocity = new Vector2(velocidad_mov, rb.velocity.y); //a qué velocidad se moverá (dirección y rapidez)
-                            rb.transform.localScale = new Vector2(1, 1); //cómo se ve el personaje
-                            anim.SetInteger("Estado", 1);                   // la animación que está corriendo -> caminar
-
+                            rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
+                            anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
                         }
 
+                        if (Input.GetKey(KeyCode.UpArrow) && toco_piso) // hace lo mismo que el de arriba xd
+                        {
+                            rb.velocity = new Vector2(rb.velocity.x, altura_salto);
+                            anim.SetInteger("Estado", 2);
+                        }
                         else
                         {
 
-                            if (Input.GetKey(KeyCode.LeftArrow))
+                            if (Input.GetKey(KeyCode.RightArrow))
                             {
-                                rb.velocity = new Vector2(-velocidad_mov, rb.velocity.y);
-                                rb.transform.localScale = new Vector2(-1, 1);
-                                anim.SetInteger("Estado", 1);
+                                rb.velocity = new Vector2(velocidad_mov, rb.velocity.y); //a qué velocidad se moverá (dirección y rapidez)
+                                rb.transform.localScale = new Vector2(1, 1); //cómo se ve el personaje
+                                anim.SetInteger("Estado", 1);                   // la animación que está corriendo -> caminar
+
                             }
+
                             else
                             {
-                                anim.SetInteger("Estado", 0);
+
+                                if (Input.GetKey(KeyCode.LeftArrow))
+                                {
+                                    rb.velocity = new Vector2(-velocidad_mov, rb.velocity.y);
+                                    rb.transform.localScale = new Vector2(-1, 1);
+                                    anim.SetInteger("Estado", 1);
+                                }
+                                else
+                                {
+                                    anim.SetInteger("Estado", 0);
+                                }
+
+
                             }
-
-
                         }
                     }
                 }
             }
+
         }
-               
     }
 }
