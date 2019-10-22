@@ -9,7 +9,8 @@ public class ContactVerifier : MonoBehaviour
     private Vector2 eje_y;                             // vector normal al eje Y, con dirección negativa
     private Vector2 eje_y_positivo;                    
     private Vector2 eje_x_positivo;                    // vector normal al eje X, con dirección positiva
-    private Vector2 normal;                            
+    private Vector2 normal;
+    private Vector2 eje_x_negativo;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class ContactVerifier : MonoBehaviour
        eje_y = new Vector2(-1f, 0f);
         eje_y_positivo = new Vector2(1f, 0f);
         eje_x_positivo = new Vector2(0f, 1f);
+        eje_x_negativo = new Vector2(0f, -1f);
+
     
     }
     public void OnCollisionEnter2D(Collision2D coll)   // indica qué hará el personaje cuando empiece a tener una colision
@@ -39,7 +42,7 @@ public class ContactVerifier : MonoBehaviour
 
             else
             {
-                if (normal != eje_y || normal != eje_y_positivo || normal != eje_x_positivo)
+                if (normal == eje_x_negativo)
                     heroe.eje_x = true;
             }
         
@@ -65,7 +68,7 @@ public class ContactVerifier : MonoBehaviour
 
             else
             {
-                if (normal != eje_y || normal != eje_y_positivo || normal != eje_x_positivo)
+                if (normal == eje_x_negativo)
                 {
                     heroe.eje_x = true;
                 }

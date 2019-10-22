@@ -67,10 +67,11 @@ public class PlayerController : MonoBehaviour
             rb.transform.parent = collider.transform; //el personaje toma el movimiento de la plataforma, haciendose hijo de ella.
         }
 
-       /* if (toco_piso)
-        {
-            Debug.Log("Estoy tocando el piso -.-"); //está comentado porque ahora mismo no lo necesito.
-        }*/
+        /* if (toco_piso)
+         {
+             Debug.Log("Estoy tocando el piso -.-"); //está comentado porque ahora mismo no lo necesito.
+         }*/
+
 
     }
 
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             toco_movil = false; // este para que no pueda saltar en el aire después de despegarse de la plataforma movil
         }
+
     }
 
     // Update is called once per frame
@@ -114,7 +116,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && toco_movil) //si presiono W y toco_movil es true
             {
                 rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
-                anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
             }
 
             else
@@ -122,7 +123,6 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey(KeyCode.W) && toco_movil) //si presiono W y toco_movil es true
                 {
                     rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
-                    anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
                 }
             }
         }
@@ -133,21 +133,21 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space) && toco_piso) // hace lo mismo que el de arriba xd
             {
+                
                 rb.velocity = new Vector2(rb.velocity.x, altura_salto);
-                anim.SetInteger("Estado", 2);
             }
             else
             {
                 if (Input.GetKey(KeyCode.W) && toco_piso) // hace lo mismo que el de arriba xd
                 {
                     rb.velocity = new Vector2(rb.velocity.x, altura_salto);
-                    anim.SetInteger("Estado", 2);
                 }
             }
         }
 
         // DEFINO CONTROLES CON A Y D.
 
+   
         if (Input.GetKey(KeyCode.D))
                 {
                     rb.velocity = new Vector2(velocidad_mov, rb.velocity.y); //a qué velocidad se moverá (dirección y rapidez)
@@ -176,13 +176,11 @@ public class PlayerController : MonoBehaviour
                          if (Input.GetKey(KeyCode.UpArrow) && toco_movil) //si presiono W y toco_movil es true
                          {
                         rb.velocity = new Vector2(rb.velocity.x, altura_salto); // se moverá hacia arriba
-                        anim.SetInteger("Estado", 2);                          // animación -> salto                               // xd
                          }
 
                             if (Input.GetKey(KeyCode.UpArrow) && toco_piso) // hace lo mismo que el de arriba xd
                             {
                              rb.velocity = new Vector2(rb.velocity.x, altura_salto);
-                             anim.SetInteger("Estado", 2);
                             }
                          }
 
@@ -215,5 +213,9 @@ public class PlayerController : MonoBehaviour
                          }
                     }
                 }
-         }
+        if (rb.velocity == new Vector2(rb.velocity.x, altura_salto))
+        {
+            anim.SetInteger("Estado", 2);
+        }
+    }
     }
