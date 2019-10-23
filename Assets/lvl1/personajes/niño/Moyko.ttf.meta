@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 3c1900ee801ebae42b326a58a4af3eee
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Moyko
+  fontNames:
+  - Moyko
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5786da4f8d9383c4cb938d478eeb707b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
